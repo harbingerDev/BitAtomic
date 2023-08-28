@@ -1,0 +1,104 @@
+Epic-`1`
+
+ Title:   Creating a flutter app named 
+          "Bit Atomic" and ask prior details and enable user to login.
+
+Description:  User can install the app and fill prior detail like awake time and sleep time and then login or register in the app and has forgot password options too.
+
+story1: create a splash screen.
+            a.As per figma design we will have a logo in center and about our app in top and bottom.
+       //Acceptance Criteria :check whether splash screen stays no longer then 3 sec.
+
+story2: create screen to ask when user awake and sleep.
+        a. As per figma design check to take details from user and save information of user awake and sleep time.
+       //Acceptance Criteria :check whether options for taking time from user working fine with cycle like clock .
+
+story3: create user login page where user can provide email and password if already signed in or else can create new account by providing details.
+while loging in if entered wrong pasword then required popup will be shown.
+       a.As per figma design make sure the screen is like logo on top and taking user email and password for login
+       //Acceptance Criteria :check whether password has eye buttom to hide and show password, check data is going and authenticating in backend well and if incorect password entered then   with a snackbar as wrong password is displayed and field are emptied and user can re login with their credentials and with correct password he is being to home page.
+       b.For new user make sure to take email pass confirm pass name well as per figma design and then registering it with a pop up after registeration is done .
+       //Acceptance Criteria :check whether if a new user came he can registered with giving a strong password and with confirm passowrd same as password and email not already registered.
+
+story4: create reset password screen with auto validate otp screen. -If user forget the password user should be able to reset password so for that reset password screen needed. 
+       a.As per figma design  when user forget the password his email is taken with correct validation for email for that a good ui page is there and otp is being sent to user .
+       //Acceptance Criteria :check whether when user forget the password his email is taken with correct validation for email and otp is being sent to user.
+       b.As otp is sent to user's email now user ui page as per figma design is there which autoverifies and red color if wrong otp entered or green color for 2 sec and after that it went for taking new password and confirm password page.
+       //Acceptance criteria :check whether correct otp is  verified and colors like green and red are surrounded for correct and wrong pass respectively with traversing on correct pass.
+
+story5:user can directly sign in with facebook and google too.
+       a. user redirected to  fb
+       b. user redirected to  google
+       // Acceptance Criteria :If is user  is signed in correctly then redirect to home page with his details.
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+Epic-`2`
+    
+ Title:   Welcome to Home page creating new habits  ,  user profile on top right , In the bottom options for pomodoro, or analytics section.
+
+ Description: As per the figma design In the top Hi Name is writen and an top right ur profile photo is there where u can click and go to user profile section, And in the buttom u have 3 icons to traverse to diff sections.
+
+story1:create home page in middle + icon to create new habits on clicking on u will go to new habit creation page and if habit is existing then u click on habit it will be marked as compete turn to green and if it has duration it will take to popop and take ur minutes.
+       a.design home page clearly As per figma design.
+       //Acceptance criteria :check whether its traversing to correct page or not mean while check by adding a habit and when its present check its turning to greeen or if duration is there popop come and will take how many minutes.
+       b. As per figma design create a page for adding new habits in which u will have options like Title means hobies name ,it will ask its for weekly or daily habit. It will ask due date and time when u want it to start ,will ask u to choose priority of the work u can choose from 1 to 9,can select to get remainder or not,ask u type that have just to have or have some duration if duration u can choose to strt and will strt with popop later.
+       //Acceptance criteria :check whether all inputs are taking or not.
+	
+story2:create user profile page
+       a.In user profile page u will be displayed with photo u wll have option to change it u have ur name,email and  u can signout it.
+        //Acceptance criteria :check whether u r displayed with correct credential details and u r able to sign out to go back to login page.
+
+story3:bottom to traverse to diff sections 
+       a.In home page we have options to traverse to pomodoro and analytics sections.
+       //Acceptance criteria :check whether its traversing correctly with blue colored on.
+              
+___________________________________________________________________________________________________________________________________________________________________________________________
+
+Epic-`3`
+
+ Title:   pomodoro section
+
+ Description: In pomodoro when u click on pomodoro u will be able to add more than one work and starting time of work pomodoro is morely for increasing productivity.
+
+story1:page to add works and mention starting time of work
+       a. Its the page where on top TRY POMODODRO is written and u can add ur tasks and can mention start time and date .
+       //Acceptance criteria :check whether u can add ur works u can set ur time. 
+
+story2:full chart time table with breaks 
+       a.then once u r added u will be notified at time and just u will be given a full structured time table plan when u wnt to strt and what to do with proper breaks to increase the productivity.
+       //Acceptance criteria :check whether the time table plan made its as per ur added tasks and with colored as per figma with proper breaks.
+
+story3:stop watch for each  each tasks
+       a.then once u r done with table just on clicking first then stopwatch will be going to start and with u a have start and pause buttons on down and and once 25 min completed break of 5 min is given.
+       //Acceptance criteria :check whether the stop watch starts and its stops after 25 mins and 5 min rest is given and its asks to strt next and cycle follows.
+____________________________________________________________________________________________________________________________________________________________________________________________
+
+Epic-`4`
+
+ Title:   analytics section
+
+ Description: In Analytics section first all the habits will be displayed  then on clicking on habits all analytics will be shown like whole month, habit score , streak as per current and  best, streak challenge which when user wins can share with others.
+
+story1:All habits analytics with 7 dates
+       a.All habits will be shown, each habit box contains name of habit 7 days name with box for each and green color if its done in that day or else black.
+       //Acceptance criteria :check whether the habit box are clickable or analytics icon is clickable and on clicking for that habit next all detail of the habit is displayed.
+story2:all about single habit in which whole month analytics , habit score is there and habit streak is there
+       a.On clicking on one habit all details of that habit is displayed like total month calender green or red or grey colors will be displayed.
+       //Acceptance criteria :check whether the current month is being displayed with correct markings green if user did , red if he missed and rest grey coloured.
+       b.Habit score is shown one circle inside habit score number is displayed.
+       //Acceptance criteria :check whether the habit score is proper allignment as per figma design and check correct habit score number is displayed.
+       c.Habit Streak is shown like currently how many days the user is being doing and his best highest streak is how many days continiously he did.
+       //Acceptance criteria :check whether the then streak designed as per figma and correct streak num for best and current is displayed.
+       d.Streak challenge is shown all the batch are there and red colored batch if user won or else its normal color.
+       //Acceptance criteria :check whether the streak challenge container are properly alligned as per figma and if user won it then red colored is shown if not shown primary color.
+story3:streak challenge winning are noted where u can share on ur winning streaks in social medias.
+       a.On clicking on each batch then one popop will come which u can share in social medias.
+       //Acceptance criteria :check whether its designed as per figma and sharable in social medias.
+____________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+             
