@@ -29,9 +29,9 @@ class _ClockWheelScrollState extends State<ClockWheelScroll> {
     return Container(
         height: 300,
         width: 400,
-        color: Color.fromARGB(255, 0, 0, 0),
+        color: Color.fromARGB(255, 255, 255, 255),
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Container(
+          SizedBox(
             width: 70,
             child: ListWheelScrollView.useDelegate(
               controller: _controller,
@@ -43,7 +43,7 @@ class _ClockWheelScrollState extends State<ClockWheelScroll> {
               itemExtent: 30,
               perspective: 0.005,
               diameterRatio: 1.2,
-              physics: FixedExtentScrollPhysics(),
+              physics: const FixedExtentScrollPhysics(),
               childDelegate: ListWheelChildBuilderDelegate(
                 childCount: 13,
                 builder: (context, index) {
@@ -52,10 +52,10 @@ class _ClockWheelScrollState extends State<ClockWheelScroll> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
-          Container(
+          SizedBox(
             width: 70,
             child: ListWheelScrollView.useDelegate(
               onSelectedItemChanged: (value) {
@@ -66,7 +66,7 @@ class _ClockWheelScrollState extends State<ClockWheelScroll> {
               itemExtent: 30,
               perspective: 0.005,
               diameterRatio: 1.2,
-              physics: FixedExtentScrollPhysics(),
+              physics: const FixedExtentScrollPhysics(),
               childDelegate: ListWheelChildBuilderDelegate(
                 childCount: 61,
                 builder: (context, index) {
@@ -75,10 +75,10 @@ class _ClockWheelScrollState extends State<ClockWheelScroll> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
-          Container(
+          SizedBox(
             width: 70,
             child: ListWheelScrollView.useDelegate(
               onSelectedItemChanged: (value) {
@@ -89,7 +89,7 @@ class _ClockWheelScrollState extends State<ClockWheelScroll> {
               itemExtent: 30,
               perspective: 0.005,
               diameterRatio: 1.2,
-              physics: FixedExtentScrollPhysics(),
+              physics: const FixedExtentScrollPhysics(),
               childDelegate: ListWheelChildBuilderDelegate(
                 childCount: 2,
                 builder: (context, index) {

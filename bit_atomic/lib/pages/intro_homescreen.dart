@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:bit_atomic/clock/clockwheelscroll.dart';
+import 'package:bit_atomic/pages/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class IntroHomeScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _IntroHomeScreenState extends State<IntroHomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      backgroundColor: Colors.black87,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -26,7 +27,7 @@ class _IntroHomeScreenState extends State<IntroHomeScreen> {
                 ? Text(
                     'What time do you usually get up?',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: const Color.fromARGB(255, 0, 0, 0),
                       fontSize: 40,
                     ),
                     textAlign: TextAlign.center,
@@ -34,7 +35,7 @@ class _IntroHomeScreenState extends State<IntroHomeScreen> {
                 : Text(
                     'What time do you usually end your day?',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: const Color.fromARGB(255, 0, 0, 0),
                       fontSize: 40,
                     ),
                     textAlign: TextAlign.center,
@@ -45,12 +46,16 @@ class _IntroHomeScreenState extends State<IntroHomeScreen> {
             child: _currentPage == 0
                 ? Text(
                     'Choose the time you usually start a new day ',
-                    style: TextStyle(color: Colors.white, fontSize: 22),
+                    style: TextStyle(
+                        color: const Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 22),
                     textAlign: TextAlign.center,
                   )
                 : Text(
                     'We will remind you to finish your checklist before that  ',
-                    style: TextStyle(color: Colors.white, fontSize: 22),
+                    style: TextStyle(
+                        color: const Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 22),
                     textAlign: TextAlign.center,
                   ),
           ),
@@ -61,36 +66,24 @@ class _IntroHomeScreenState extends State<IntroHomeScreen> {
             height: 75,
           ),
 
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                _currentPage++;
-              });
-            },
-            style: ButtonStyle(),
-            child: Text('NEXT',
-                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
-          ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text('Already have account',
-                    style:
-                        TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
-                Padding(
-                  padding: const EdgeInsets.only(left: 27),
-                  child: ElevatedButton(
-                      onPressed: null,
-                      style: ButtonStyle(),
-                      child: Text('login now',
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255)))),
-                ),
-              ],
+            padding: const EdgeInsets.only(bottom: 30),
+            child: ElevatedButton(
+              onPressed: () {
+                if (_currentPage == 1) {
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  ));
+                }
+                setState(() {
+                  _currentPage++;
+                });
+              },
+              style: ButtonStyle(),
+              child: Text('NEXT',
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
             ),
-          )
+          ),
         ],
       ),
     ));

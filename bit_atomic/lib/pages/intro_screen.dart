@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:bit_atomic/pages/home_screen.dart';
+import 'package:bit_atomic/pages/auth_screen.dart';
+import 'package:bit_atomic/pages/widgets/sharedpreferences.dart';
 import 'package:flutter/material.dart';
 
 class IntroScreen extends StatefulWidget {
@@ -15,7 +18,7 @@ class _IntroScreenState extends State<IntroScreen> {
       "title": Text(
         'The only way to do great work is to love what you do. What do you love to do?',
         style: TextStyle(
-            color: Colors.black87, fontSize: 22, fontWeight: FontWeight.w500),
+            color: Colors.black87, fontSize: 20, fontWeight: FontWeight.w500),
         textAlign: TextAlign.center,
       ),
       "icons": Image.asset(
@@ -28,7 +31,7 @@ class _IntroScreenState extends State<IntroScreen> {
       "title": Text(
         'The journey of a thousand miles begins with a single step. What step will you take today?',
         style: TextStyle(
-            color: Colors.black87, fontSize: 22, fontWeight: FontWeight.w500),
+            color: Colors.black87, fontSize: 20, fontWeight: FontWeight.w500),
         textAlign: TextAlign.center,
       ),
       "icons": Image.asset(
@@ -41,7 +44,7 @@ class _IntroScreenState extends State<IntroScreen> {
       "title": Text(
         'Pomodoro Technique is a simple yet effective way to improve your focus and productivity. Wanna start ? ',
         style: TextStyle(
-            color: Colors.black87, fontSize: 22, fontWeight: FontWeight.w500),
+            color: Colors.black87, fontSize: 20, fontWeight: FontWeight.w500),
         textAlign: TextAlign.center,
       ),
       "icons": Image.asset(
@@ -69,26 +72,35 @@ class _IntroScreenState extends State<IntroScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 340.0, top: 35),
-                child: InkWell(
-                  onTap: () {
-                    //move to login page
-                  },
-                  child: Container(
-                    height: 30,
-                    width: 60,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40),
-                        color: Color.fromARGB(255, 249, 249, 249)),
-                    child: Text(
-                      'Skip ',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Color(0xFF08BC83),
-                          fontSize: 17,
-                          fontWeight: FontWeight.w500),
+                padding: const EdgeInsets.only(top: 25, right: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        //move to login page
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) => AuthScreen()
+                                //  LoginScreen(),
+                                ));
+                      },
+                      child: Container(
+                        height: 30,
+                        width: 50,
+                        decoration: BoxDecoration(
+                            // borderRadius: BorderRadius.circular(50),
+                            color: Colors.white),
+                        child: Text(
+                          'Skip ',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Color(0xFF08BC83),
+                              fontSize: MediaQuery.of(context).size.width * .05,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
               Expanded(
@@ -197,7 +209,13 @@ class _IntroScreenState extends State<IntroScreen> {
                       )
                     : InkWell(
                         onTap: () {
+                          MySharedPref.setGetStartedTrue();
+
                           //logic for login
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
+                            builder: (context) => AuthScreen(),
+                          ));
                         },
                         child: Container(
                           height: 50,

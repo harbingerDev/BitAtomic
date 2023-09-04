@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class MyHours extends StatelessWidget {
   int hours;
 
-  MyHours({required this.hours});
+  MyHours({super.key, required this.hours});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,9 @@ class MyHours extends StatelessWidget {
             child: Text(
           hours.toString(),
           style: TextStyle(
-              fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
+              fontSize: 22,
+              color: const Color.fromARGB(255, 0, 0, 0),
+              fontWeight: FontWeight.bold),
         )),
       ),
     );

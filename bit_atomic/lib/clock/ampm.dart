@@ -16,7 +16,7 @@ class MyAmPm extends StatelessWidget {
             child: Text(
           isItAm == true ? 'AM' : 'PM',
           style: TextStyle(
-              fontSize: 22, color: Colors.white, fontWeight: FontWeight.bold),
+              fontSize: 22, color: const Color.fromARGB(255, 0, 0, 0), fontWeight: FontWeight.bold),
         )),
       ),
     );

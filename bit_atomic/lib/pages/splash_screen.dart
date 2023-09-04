@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:bit_atomic/pages/home_screen.dart';
 import 'package:bit_atomic/pages/intro_screen.dart';
+import 'package:bit_atomic/pages/auth_screen.dart';
+import 'package:bit_atomic/pages/widgets/sharedpreferences.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,10 +24,42 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _navigateToRequiredPageAfterFewSec() async {
-    await Future.delayed(Duration(seconds: 15), () {
-      Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const IntroScreen()));
+
+
+    var isLogedIn;
+    var isgettingStarted;
+
+    
+    SharedPreferences.getInstance().then((sharedPreferences) {
+      isLogedIn = sharedPreferences.getBool('isLogged');
+      if (isLogedIn == null) isLogedIn = false;
+      print("inside1");
     });
+    SharedPreferences.getInstance().then((sharedPreferences) {
+      isgettingStarted = sharedPreferences.getBool('isStarted');
+      if (isgettingStarted == null) isgettingStarted = false;
+      print("inside2");
+    });
+
+    await Future.delayed(Duration(seconds: 3), () {
+      print(isLogedIn);
+      print(isgettingStarted);
+
+      if (!isgettingStarted) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => IntroScreen()));
+      } else {
+        if (isLogedIn) {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        } else {
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => AuthScreen()));
+        }
+      }
+
+    });
+
   }
 
   @override
@@ -32,12 +68,12 @@ class _SplashScreenState extends State<SplashScreen> {
         textStyle: Theme.of(context).textTheme.headlineMedium,
         color: Colors.black87,
         fontWeight: FontWeight.bold,
-        fontSize: 22);
+        fontSize: MediaQuery.of(context).size.width * .05);
     final fontsbottom = GoogleFonts.roboto(
         textStyle: Theme.of(context).textTheme.headlineMedium,
         color: Colors.black87,
         fontWeight: FontWeight.bold,
-        fontSize: 20);
+        fontSize: MediaQuery.of(context).size.width * .05);
 
     return SafeArea(
       child: Scaffold(
